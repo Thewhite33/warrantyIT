@@ -1,16 +1,14 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
     CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
     Select,
     SelectContent,
@@ -75,7 +73,6 @@ const FormData = () => {
                 body: JSON.stringify(values)
             })
             if (!response.ok) throw new Error("Failed to save product");
-            const result = await response.json();
             toast({ description: "Your product was registered", })
         } catch (error) {
             toast({

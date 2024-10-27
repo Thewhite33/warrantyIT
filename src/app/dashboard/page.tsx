@@ -10,9 +10,8 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { Product } from '@prisma/client'
 
-const page = () => {
+const Page = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
         fetchProducts()
@@ -45,7 +44,7 @@ const page = () => {
                     </TableHeader>
                     <TableBody>
                         {products?.map((product) => (
-                            <TableRow>
+                            <TableRow key={product.id}>
                                 <TableCell className="font-medium">{product.user.email}</TableCell>
                                 <TableCell className="font-medium">{product.productName}</TableCell>
                                 <TableCell className="font-medium">{product.warranty}</TableCell>
@@ -66,4 +65,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

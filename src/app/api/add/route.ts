@@ -1,8 +1,7 @@
-import { productSchema } from "@/components/Form";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
         let user = await prisma.user.findUnique({
@@ -38,7 +37,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 }
 
 
-export async function GET(req: NextRequest, res: NextResponse){
+export async function GET(){
     try {
         const product = await prisma.product.findMany({
             include:{
